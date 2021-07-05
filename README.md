@@ -10,11 +10,6 @@
 pip install mask-redis
 ```
 
-### Document
-
-`Mask-Redis` manual could be found at:  https://mask-redis.readthedocs.io/en/latest
-
-
 ### A Simple Example
 
 This is very easy to use `Mask-Redis` in your project.
@@ -101,8 +96,6 @@ ETH: 0xb098600a9a4572a4894dce31471c46f1f290b087
 
 ### Links
 
-* Documentaion: https://mask-redis.readthedocs.io/en/latest
 * Release: https://github.com/Eastwu5788/Mask-Redis/releases
 * Code: https://github.com/Eastwu5788/Mask-Redis
 * Issue tracker: https://github.com/Eastwu5788/Mask-Redis/issues
-* Test status: https://coveralls.io/github/Eastwu5788/Mask-Redis
