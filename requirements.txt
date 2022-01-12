@@ -1,8 +1,9 @@
 mask>=1.0.0a1
-redis>=3.5.3
+redis>= 4.1.0
 
 flake8>=3.9.2
 pylint>=2.8.3
+pytest >= 6.2.5
 
 wheel>=0.36.2
 twine>=3.4.1
