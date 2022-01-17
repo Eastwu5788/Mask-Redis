@@ -248,8 +248,7 @@ class BaseExtensions:
 
                 # get all default value
                 default_args = func.__defaults__
-                kw = {} if not default_args else dict(zip(args_key[len(args_key) - len(default_args):],
-                                                              default_args))
+                kw = {} if not default_args else dict(zip(args_key[len(args_key) - len(default_args):], default_args))
 
                 args_val = args
                 if "cls" in args_key or "self" in args_key:
