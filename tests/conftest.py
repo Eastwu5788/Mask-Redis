@@ -88,7 +88,7 @@ def master():
 
     rds = Sentinel()
     rds.init_app(app)
-    return rds.master_for("mymaster")
+    return rds.master_for("redis-py-test")
 
 
 @pytest.fixture
@@ -109,4 +109,4 @@ def slave():
 
     rds = Sentinel()
     rds.init_app(app)
-    return rds.slave_for("mymaster")
+    return rds.slave_for("redis-py-test")
