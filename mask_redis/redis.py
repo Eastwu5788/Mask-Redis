@@ -65,7 +65,7 @@ class Redis(RedisExt):  # pylint: disable=abstract-method, too-many-ancestors, f
         :param app: mask application
         :param config: config for mask redis
         """
-        self.instances = dict()
+        self.instances = {}
 
         if app is not None:
             self.app = app
@@ -94,7 +94,7 @@ class Redis(RedisExt):  # pylint: disable=abstract-method, too-many-ancestors, f
                 elif isinstance(value, str):
                     cfg[K_RDS_URL] = value
                 else:
-                    raise TypeError("%s sub database items must be type of string or dict" % K_RDS_BINDS)
+                    raise TypeError(f"{K_RDS_BINDS} sub database items must be type of string or dict")
 
                 if key == dft_bind_key:
                     super().__init__(cfg)
@@ -116,7 +116,7 @@ class Redis(RedisExt):  # pylint: disable=abstract-method, too-many-ancestors, f
         """
         obj = self.instances.get(item)
         if obj is None:
-            raise KeyError("Cannot read db with name '%s'" % item)
+            raise KeyError(f"Cannot read db with name '{item}'")
         return obj
 
     def close(self):

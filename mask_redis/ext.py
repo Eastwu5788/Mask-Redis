@@ -44,7 +44,7 @@ def md5(ori_str):
 def fmt_kwargs(ori_kw):
     """ format origin params
     """
-    fmt_kw = dict()
+    fmt_kw = {}
     for k, v in ori_kw.items():
         # 处理数组
         if isinstance(v, (list, tuple, set)):
@@ -159,7 +159,7 @@ class BaseExtensions:
             if not valid_keys:
                 continue
 
-            setattr(self, "__old_%s" % method, func)
+            setattr(self, f"__old_{method}", func)
             setattr(self, method, partial(self._decorator, method, args_key[1:], var_args))
 
     def _decorator(self, func, keys, var_args, *args, **kwargs):
@@ -189,10 +189,10 @@ class BaseExtensions:
         # add *args to func call
         if var_args and var_args in kw:
             new_args = [kw.pop(k) for k in keys] + list(kw.pop(var_args))
-            return getattr(self, "__old_%s" % func)(*new_args, **kw)
+            return getattr(self, f"__old_{func}")(*new_args, **kw)
 
         # func call for only kw
-        return getattr(self, "__old_%s" % func)(**kw)
+        return getattr(self, f"__old_{func}")(**kw)
 
     def _get_key(self, key):
         """ Generate operate key
@@ -248,7 +248,7 @@ class BaseExtensions:
 
                 # get all default value
                 default_args = func.__defaults__
-                kw = dict() if not default_args else dict(zip(args_key[len(args_key) - len(default_args):],
+                kw = {} if not default_args else dict(zip(args_key[len(args_key) - len(default_args):],
                                                               default_args))
 
                 args_val = args
