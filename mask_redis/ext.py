@@ -25,6 +25,9 @@ from redis.commands.core import (
     HashCommands,
     DataAccessCommands
 )
+# type
+if t.TYPE_CHECKING:
+    from mask import Mask  # pylint: disable=unused-import
 
 
 def md5(ori_str):
@@ -106,7 +109,7 @@ class BaseExtensions:
 
     def init_config(
             self,
-            app: "Flask",
+            app: "Mask",
             config: t.Optional[t.Dict[str, t.Any]] = None
     ) -> dict:
         if not (config is None or isinstance(config, dict)):
@@ -258,7 +261,7 @@ class BaseExtensions:
                 use_cache, cache_key = kw.get("cache", True), key.format(**fmt_kwargs(kw))
                 # global variables have higher priority than local variables for only ignore cache
                 if isinstance(self._ignore_cached, bool):
-                    use_cache = False if self._ignore_cached else True
+                    use_cache = not self._ignore_cached
 
                 if use_cache:
                     cache_rst = self._ext_get(cache_key)

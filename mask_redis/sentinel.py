@@ -14,12 +14,12 @@ from redis import SentinelConnectionPool
 from .redis import RedisExt
 # type
 if t.TYPE_CHECKING:
-    from mask import Mask
+    from mask import Mask  # pylint: disable=unused-import
 
 
 class SentinelExt(_Sentinel):
 
-    def __init__(
+    def __init__(  # pylint: disable=super-init-not-called
             self,
             config: dict
     ):

@@ -4,6 +4,7 @@
 # All rights reserved
 # @Author: 'Wu Dong <wudong@eastwu.cn>'
 # @Time: '6/29/21 1:10 PM'
+# flake8: noqa
 from .macro import (
     K_RDS_BINDS,
     K_RDS_DEFAULT_BIND_KEY,

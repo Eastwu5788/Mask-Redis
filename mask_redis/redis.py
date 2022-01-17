@@ -20,10 +20,10 @@ from .macro import (
 )
 # check
 if t.TYPE_CHECKING:
-    from mask import Mask
+    from mask import Mask  # pylint: disable=unused-import
 
 
-class RedisExt(Redis, BaseExtensions):
+class RedisExt(Redis, BaseExtensions):  # pylint: disable=abstract-method, too-many-ancestors
 
     def __init__(self, config):
         """ Initialize redis client with special config
@@ -38,11 +38,11 @@ class RedisExt(Redis, BaseExtensions):
         kwargs = {k[6:].lower(): v for k, v in config.items() if k.startswith("REDIS_")}
         if rds_url:
             connection_pool = ConnectionPool.from_url(rds_url, **kwargs)
-            super(RedisExt, self).__init__(connection_pool=connection_pool)
+            super().__init__(connection_pool=connection_pool)
         elif pool:
-            super(RedisExt, self).__init__(connection_pool=pool)
+            super().__init__(connection_pool=pool)
         else:
-            super(RedisExt, self).__init__(**kwargs)
+            super().__init__(**kwargs)
 
         self._partial_methods()
 
@@ -53,7 +53,7 @@ class RedisExt(Redis, BaseExtensions):
         return self.get(key)
 
 
-class Redis(RedisExt):
+class Redis(RedisExt):  # pylint: disable=abstract-method, too-many-ancestors, function-redefined
 
     def __init__(  # pylint: disable=super-init-not-called
             self,
