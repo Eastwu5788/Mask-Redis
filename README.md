@@ -1,5 +1,9 @@
 ## Mask-Redis
 
+[![CI](https://github.com/Eastwu5788/Mask-Redis/actions/workflows/intergration.yml/badge.svg)](https://github.com/Eastwu5788/Mask-Redis/actions/workflows/intergration.yml)
+[![codecov](https://codecov.io/gh/Eastwu5788/Mask-Redis/branch/master/graph/badge.svg?token=D7X3STH5MD)](https://codecov.io/gh/Eastwu5788/Mask-Redis)
+[![PyPI version](https://badge.fury.io/py/Mask-Redis.svg)](https://badge.fury.io/py/Mask-Redis)
+
 `Redis` extension for `Mask` .
 
 ### Install
